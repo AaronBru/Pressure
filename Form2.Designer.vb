@@ -25,6 +25,7 @@ Partial Class config
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -32,12 +33,20 @@ Partial Class config
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Preview = New System.Windows.Forms.Button()
+        Me.time = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.final = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Checked = True
+        Me.CheckBox1.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox1.Location = New System.Drawing.Point(37, 46)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(94, 17)
@@ -66,7 +75,7 @@ Partial Class config
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(171, 267)
+        Me.Button1.Location = New System.Drawing.Point(34, 223)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 3
@@ -75,10 +84,11 @@ Partial Class config
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(34, 115)
+        Me.TextBox1.Location = New System.Drawing.Point(100, 95)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(97, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(31, 20)
         Me.TextBox1.TabIndex = 4
+        Me.TextBox1.Text = "50"
         '
         'Label2
         '
@@ -90,25 +100,95 @@ Partial Class config
         '
         'Chart1
         '
+        Me.Chart1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        ChartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
+        ChartArea1.AxisX.Maximum = 900.0R
+        ChartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
         ChartArea1.Name = "ChartArea1"
         Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.Enabled = False
         Legend1.Name = "Legend1"
         Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(193, 19)
+        Me.Chart1.Location = New System.Drawing.Point(181, 24)
         Me.Chart1.Name = "Chart1"
         Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series1.IsVisibleInLegend = False
         Series1.Legend = "Legend1"
+        Series1.LegendText = "PSI"
         Series1.Name = "Series1"
         Me.Chart1.Series.Add(Series1)
-        Me.Chart1.Size = New System.Drawing.Size(187, 204)
+        Me.Chart1.Size = New System.Drawing.Size(253, 174)
         Me.Chart1.TabIndex = 6
         Me.Chart1.Text = "Chart1"
+        Title1.Name = "Title1"
+        Me.Chart1.Titles.Add(Title1)
+        '
+        'Preview
+        '
+        Me.Preview.Location = New System.Drawing.Point(34, 175)
+        Me.Preview.Name = "Preview"
+        Me.Preview.Size = New System.Drawing.Size(75, 23)
+        Me.Preview.TabIndex = 7
+        Me.Preview.Text = "Preview"
+        Me.Preview.UseVisualStyleBackColor = True
+        '
+        'time
+        '
+        Me.time.Location = New System.Drawing.Point(100, 119)
+        Me.time.Name = "time"
+        Me.time.Size = New System.Drawing.Size(31, 20)
+        Me.time.TabIndex = 8
+        Me.time.Text = "900"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(15, 98)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(77, 13)
+        Me.Label3.TabIndex = 9
+        Me.Label3.Text = "Rate (PSI/min)"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(15, 122)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(79, 13)
+        Me.Label4.TabIndex = 10
+        Me.Label4.Text = "Time (seconds)"
+        '
+        'final
+        '
+        Me.final.Location = New System.Drawing.Point(100, 146)
+        Me.final.Name = "final"
+        Me.final.Size = New System.Drawing.Size(31, 20)
+        Me.final.TabIndex = 11
+        Me.final.Text = "100"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(15, 149)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(29, 13)
+        Me.Label5.TabIndex = 12
+        Me.Label5.Text = "Final"
         '
         'config
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(412, 315)
+        Me.ClientSize = New System.Drawing.Size(446, 322)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.final)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.time)
+        Me.Controls.Add(Me.Preview)
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TextBox1)
@@ -131,4 +211,10 @@ Partial Class config
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Chart1 As DataVisualization.Charting.Chart
+    Friend WithEvents Preview As Button
+    Friend WithEvents time As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents final As TextBox
+    Friend WithEvents Label5 As Label
 End Class
