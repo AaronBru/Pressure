@@ -1,6 +1,4 @@
-﻿Imports System.Math
-
-Public Class Form1
+﻿Public Class Form1
 
     Dim daqDevice As MccDaq.DaqDeviceDescriptor()
     Dim boardExists As Boolean
