@@ -64,7 +64,7 @@
     End Sub
 
     Private Sub config_Click(sender As Object, e As EventArgs) Handles config.Click
-        objConfig.Visible = True
-        objForm1.Visible = False
+        configure.Show()
+        configure.BringToFront()
     End Sub
 End Class
