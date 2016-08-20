@@ -1,6 +1,4 @@
 ﻿Module Module1
-    Friend objForm1 As New Form1
-    Friend objConfig As New config
 
     Sub exp(ByVal tau As Integer, ByVal time As Integer, ByVal final As Integer, ByRef curve As DataVisualization.Charting.Series)
 
@@ -41,6 +39,8 @@
     Sub changeAxis(ByVal finalTime As Integer, ByRef area As DataVisualization.Charting.ChartArea)
         area.AxisX.Maximum = finalTime
         area.AxisX.LabelStyle.Format = "#####"
+        area.AxisX.Title = "Time (sec)"
+        area.AxisY.Title = "PSI"
     End Sub
 
 End Module

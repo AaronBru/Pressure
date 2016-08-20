@@ -1,6 +1,6 @@
 ﻿Imports System.Text.RegularExpressions
 
-Public Class config
+Public Class configure
     Private Sub TextBox1_Leave(sender As Object, e As EventArgs) Handles TextBox1.Leave
 
         If Regex.IsMatch(TextBox1.Text, "[^0-9]") Then
@@ -27,8 +27,8 @@ Public Class config
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        objForm1.Visible = True
-        objConfig.Visible = False
+        Form1.Show()
+        Me.Close()
 
     End Sub
 
@@ -56,8 +56,8 @@ Public Class config
             exp(rateTau, timeFull, finalPSI, plotEqn)
             Chart1.Series.Clear()
             Chart1.Series.Add(plotEqn)
-            changeAxis(timeFull, plotAxis)
             Chart1.ChartAreas.Clear()
+            changeAxis(timeFull, plotAxis)
             Chart1.ChartAreas.Add(plotAxis)
             Chart1.Series.Item(0).LegendText = "PSI"
             Chart1.Series.Item(0).BorderWidth = 3

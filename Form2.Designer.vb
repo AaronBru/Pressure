@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class config
+Partial Class configure
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -47,7 +47,7 @@ Partial Class config
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Checked = True
         Me.CheckBox1.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox1.Location = New System.Drawing.Point(37, 46)
+        Me.CheckBox1.Location = New System.Drawing.Point(18, 28)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(94, 17)
         Me.CheckBox1.TabIndex = 0
@@ -57,7 +57,7 @@ Partial Class config
         'CheckBox2
         '
         Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(37, 69)
+        Me.CheckBox2.Location = New System.Drawing.Point(18, 51)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(97, 17)
         Me.CheckBox2.TabIndex = 1
@@ -67,7 +67,7 @@ Partial Class config
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(34, 19)
+        Me.Label1.Location = New System.Drawing.Point(15, 12)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(129, 13)
         Me.Label1.TabIndex = 2
@@ -75,7 +75,7 @@ Partial Class config
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(34, 223)
+        Me.Button1.Location = New System.Drawing.Point(40, 204)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 3
@@ -84,7 +84,7 @@ Partial Class config
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(100, 95)
+        Me.TextBox1.Location = New System.Drawing.Point(124, 77)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(31, 20)
         Me.TextBox1.TabIndex = 4
@@ -93,7 +93,7 @@ Partial Class config
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(34, 122)
+        Me.Label2.Location = New System.Drawing.Point(34, 106)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(0, 13)
         Me.Label2.TabIndex = 5
@@ -105,13 +105,15 @@ Partial Class config
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         ChartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
         ChartArea1.AxisX.Maximum = 900.0R
+        ChartArea1.AxisX.Title = "Time (sec)"
         ChartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
+        ChartArea1.AxisY.Title = "PSI"
         ChartArea1.Name = "ChartArea1"
         Me.Chart1.ChartAreas.Add(ChartArea1)
         Legend1.Enabled = False
         Legend1.Name = "Legend1"
         Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(181, 24)
+        Me.Chart1.Location = New System.Drawing.Point(181, 12)
         Me.Chart1.Name = "Chart1"
         Series1.ChartArea = "ChartArea1"
         Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
@@ -120,7 +122,7 @@ Partial Class config
         Series1.LegendText = "PSI"
         Series1.Name = "Series1"
         Me.Chart1.Series.Add(Series1)
-        Me.Chart1.Size = New System.Drawing.Size(253, 174)
+        Me.Chart1.Size = New System.Drawing.Size(559, 227)
         Me.Chart1.TabIndex = 6
         Me.Chart1.Text = "Chart1"
         Title1.Name = "Title1"
@@ -128,7 +130,7 @@ Partial Class config
         '
         'Preview
         '
-        Me.Preview.Location = New System.Drawing.Point(34, 175)
+        Me.Preview.Location = New System.Drawing.Point(40, 163)
         Me.Preview.Name = "Preview"
         Me.Preview.Size = New System.Drawing.Size(75, 23)
         Me.Preview.TabIndex = 7
@@ -137,7 +139,7 @@ Partial Class config
         '
         'time
         '
-        Me.time.Location = New System.Drawing.Point(100, 119)
+        Me.time.Location = New System.Drawing.Point(124, 103)
         Me.time.Name = "time"
         Me.time.Size = New System.Drawing.Size(31, 20)
         Me.time.TabIndex = 8
@@ -146,7 +148,7 @@ Partial Class config
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(15, 98)
+        Me.Label3.Location = New System.Drawing.Point(15, 82)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(77, 13)
         Me.Label3.TabIndex = 9
@@ -155,7 +157,7 @@ Partial Class config
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(15, 122)
+        Me.Label4.Location = New System.Drawing.Point(15, 106)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(79, 13)
         Me.Label4.TabIndex = 10
@@ -163,7 +165,7 @@ Partial Class config
         '
         'final
         '
-        Me.final.Location = New System.Drawing.Point(100, 146)
+        Me.final.Location = New System.Drawing.Point(124, 130)
         Me.final.Name = "final"
         Me.final.Size = New System.Drawing.Size(31, 20)
         Me.final.TabIndex = 11
@@ -172,17 +174,17 @@ Partial Class config
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(15, 149)
+        Me.Label5.Location = New System.Drawing.Point(15, 133)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(29, 13)
         Me.Label5.TabIndex = 12
         Me.Label5.Text = "Final"
         '
-        'config
+        'configure
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(446, 322)
+        Me.ClientSize = New System.Drawing.Size(752, 251)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.final)
         Me.Controls.Add(Me.Label4)
@@ -196,7 +198,7 @@ Partial Class config
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.CheckBox2)
         Me.Controls.Add(Me.CheckBox1)
-        Me.Name = "config"
+        Me.Name = "configure"
         Me.Text = "Configure Test"
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
