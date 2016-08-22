@@ -1,4 +1,6 @@
-﻿Public Class Form1
+﻿Imports System.Runtime.InteropServices
+
+Public Class Form1
 
     Private daqDevice As MccDaq.DaqDeviceDescriptor()
     Private boardExists As Boolean
@@ -100,11 +102,18 @@
 
     Private Sub analogTmr_Tick(sender As Object, e As EventArgs) Handles analogTmr.Tick
         Dim vInChamber, vInValve As Double
+        Dim timeDisplay As String = secCount \ 480 & secCount \ 8
 
         DaqBoard.VIn32(0, AInRange, vInChamber, MccDaq.VInOptions.Default)
         DaqBoard.VIn32(1, AInRange, vInValve, MccDaq.VInOptions.Default)
-        prev.Series.Item(1).Points.AddXY(secCount \ 8, vInChamber * 300)
-        prev.Series.Item(2).Points.AddXY(secCount \ 8, vInValve * 300)
+        prev.Series.Item(1).Points.AddXY(secCount / 8.0, vInChamber * 300)
+        prev.Series.Item(2).Points.AddXY(secCount / 8.0, vInValve * 300)
+
+        If pressurePlot = 0 Then
+            DaqBoard.VOut(0, MccDaq.Range.Uni5Volts, analogOutRate(), MccDaq.VOutOptions.Default)
+        ElseIf pressurePlot = 1 Then
+            DaqBoard.VOut(0, MccDaq.Range.Uni5Volts, analogOutExp(), MccDaq.VOutOptions.Default)
+        End If
 
         If secCount Mod 480 = 0 Then
             updateAxis(secCount \ 8)
@@ -113,6 +122,27 @@
         secCount += 1
 
     End Sub
+
+    Private Function analogOutRate() As Double
+        Dim aOut As Double
+
+        aOut = (rateTau / 60.0) * (secCount / 8.0)
+
+        If aOut > finalPSI Then
+
+            aOut = finalPSI
+
+        End If
+
+        Return aOut / 600.0
+    End Function
+
+    Private Function analogOutExp() As Double
+        Dim aOut As Double
+        aOut = finalPSI - finalPSI * System.Math.Exp(secCount / (8.0 * CDbl(rateTau)))
+
+        Return aOut / 600.0
+    End Function
 
     Private Sub updateAxis(ByVal maxInt As Integer)
         prev.ChartAreas.Item(0).AxisX.Minimum = maxInt
