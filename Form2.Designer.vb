@@ -104,7 +104,9 @@ Partial Class configure
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         ChartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
-        ChartArea1.AxisX.Maximum = 900.0R
+        ChartArea1.AxisX.IsMarginVisible = False
+        ChartArea1.AxisX.Maximum = 1.0R
+        ChartArea1.AxisX.Minimum = 0R
         ChartArea1.AxisX.Title = "Time (sec)"
         ChartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
         ChartArea1.AxisY.Title = "PSI"

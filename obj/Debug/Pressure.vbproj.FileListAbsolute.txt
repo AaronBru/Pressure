@@ -41,3 +41,4 @@ C:\Users\USER\Documents\Visual Studio 2015\Projects\Pressure\obj\Debug\WindowsAp
 C:\Users\USER\Documents\Visual Studio 2015\Projects\Pressure\obj\Debug\WindowsApplication1.Resources.resources
 C:\Users\USER\Documents\Visual Studio 2015\Projects\Pressure\obj\Debug\Pressure.vbproj.GenerateResource.Cache
 C:\Users\USER\Documents\Visual Studio 2015\Projects\Pressure\obj\Debug\WindowsApplication1.configure.resources
+C:\Users\Aaron\Documents\Visual Studio 2015\Projects\Pressure\Pressure\obj\Debug\WindowsApplication1.configure.resources
