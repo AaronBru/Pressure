@@ -7,8 +7,8 @@
 
         curve.ChartType = DataVisualization.Charting.SeriesChartType.Line
 
-        For i As Integer = 0 To 10 * time
-            timeInt = CDbl(i / 10.0)
+        For i As Integer = 0 To 8 * time
+            timeInt = CDbl(i / 8.0)
             yCoord = timeInt / CDbl(tau)
             curve.Points.AddXY(timeInt, final - final * System.Math.Exp(-yCoord))
         Next
@@ -19,12 +19,12 @@
 
         Dim timeInt As Double
         Dim yCoord As Double = 0
-        Dim rateSec As Double = rate / 60
+        Dim rateSec As Double = rate / 60.0
 
         curve.ChartType = DataVisualization.Charting.SeriesChartType.Line
 
-        For i As Integer = 0 To 10 * time
-            timeInt = CDbl(i / 10.0)
+        For i As Integer = 0 To 8 * time
+            timeInt = CDbl(i / 8.0)
             If yCoord >= final Then
                 yCoord = final
                 curve.Points.AddXY(timeInt, yCoord)
@@ -37,10 +37,13 @@
     End Sub
 
     Sub changeAxis(ByVal finalTime As Integer, ByRef area As DataVisualization.Charting.ChartArea)
+
         area.AxisX.Maximum = finalTime
+        area.AxisX.IsMarginVisible = False
         area.AxisX.LabelStyle.Format = "#####"
         area.AxisX.Title = "Time (sec)"
         area.AxisY.Title = "PSI"
+
     End Sub
 
 End Module
