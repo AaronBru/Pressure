@@ -38,6 +38,7 @@ Public Class configure
             Form1.setpressurePlot(1)
         End If
 
+        Form1.pressPrev.Checked = False
         Form1.Show()
         Me.Close()
 
