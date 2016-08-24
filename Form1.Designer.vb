@@ -23,11 +23,11 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.daqFindButton = New System.Windows.Forms.Button()
         Me.Sample = New System.Windows.Forms.Button()
         Me.analogTmr = New System.Windows.Forms.Timer(Me.components)
@@ -42,6 +42,8 @@ Partial Class Form1
         Me.outputEnable = New System.Windows.Forms.CheckBox()
         Me.graphChange = New System.Windows.Forms.Button()
         Me.recordLED = New BERGtools.LED()
+        Me.valveOpen = New System.Windows.Forms.Button()
+        Me.valveLabel = New System.Windows.Forms.Label()
         CType(Me.prev, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.upDownPSI, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -73,34 +75,34 @@ Partial Class Form1
         Me.prev.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ChartArea2.AxisX.ScrollBar.ButtonColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        ChartArea2.CursorX.IsUserEnabled = True
-        ChartArea2.CursorX.IsUserSelectionEnabled = True
-        ChartArea2.Name = "ChartArea1"
-        Me.prev.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.prev.Legends.Add(Legend2)
+        ChartArea1.AxisX.ScrollBar.ButtonColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        ChartArea1.CursorX.IsUserEnabled = True
+        ChartArea1.CursorX.IsUserSelectionEnabled = True
+        ChartArea1.Name = "ChartArea1"
+        Me.prev.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.prev.Legends.Add(Legend1)
         Me.prev.Location = New System.Drawing.Point(190, 12)
         Me.prev.Name = "prev"
-        Series4.ChartArea = "ChartArea1"
-        Series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series4.Enabled = False
-        Series4.Legend = "Legend1"
-        Series4.Name = "Series1"
-        Series5.ChartArea = "ChartArea1"
-        Series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series5.Enabled = False
-        Series5.Legend = "Legend1"
-        Series5.Name = "Series2"
-        Series6.ChartArea = "ChartArea1"
-        Series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series6.Enabled = False
-        Series6.Legend = "Legend1"
-        Series6.Name = "Series3"
-        Me.prev.Series.Add(Series4)
-        Me.prev.Series.Add(Series5)
-        Me.prev.Series.Add(Series6)
-        Me.prev.Size = New System.Drawing.Size(679, 487)
+        Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series1.Enabled = False
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Series2.ChartArea = "ChartArea1"
+        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series2.Enabled = False
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series2"
+        Series3.ChartArea = "ChartArea1"
+        Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series3.Enabled = False
+        Series3.Legend = "Legend1"
+        Series3.Name = "Series3"
+        Me.prev.Series.Add(Series1)
+        Me.prev.Series.Add(Series2)
+        Me.prev.Series.Add(Series3)
+        Me.prev.Size = New System.Drawing.Size(679, 485)
         Me.prev.TabIndex = 3
         Me.prev.Text = "Chart1"
         '
@@ -179,7 +181,7 @@ Partial Class Form1
         '
         'graphChange
         '
-        Me.graphChange.Location = New System.Drawing.Point(43, 289)
+        Me.graphChange.Location = New System.Drawing.Point(43, 170)
         Me.graphChange.Name = "graphChange"
         Me.graphChange.Size = New System.Drawing.Size(90, 23)
         Me.graphChange.TabIndex = 13
@@ -200,11 +202,32 @@ Partial Class Form1
         Me.recordLED.TabIndex = 14
         Me.recordLED.Value = False
         '
+        'valveOpen
+        '
+        Me.valveOpen.Location = New System.Drawing.Point(43, 258)
+        Me.valveOpen.Name = "valveOpen"
+        Me.valveOpen.Size = New System.Drawing.Size(79, 23)
+        Me.valveOpen.TabIndex = 15
+        Me.valveOpen.Text = "Open Valve"
+        Me.valveOpen.UseVisualStyleBackColor = True
+        '
+        'valveLabel
+        '
+        Me.valveLabel.AutoSize = True
+        Me.valveLabel.Location = New System.Drawing.Point(50, 284)
+        Me.valveLabel.Name = "valveLabel"
+        Me.valveLabel.Size = New System.Drawing.Size(69, 13)
+        Me.valveLabel.TabIndex = 16
+        Me.valveLabel.Text = "Valve Closed"
+        Me.valveLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(881, 511)
+        Me.ClientSize = New System.Drawing.Size(881, 509)
+        Me.Controls.Add(Me.valveLabel)
+        Me.Controls.Add(Me.valveOpen)
         Me.Controls.Add(Me.recordLED)
         Me.Controls.Add(Me.graphChange)
         Me.Controls.Add(Me.outputEnable)
@@ -241,4 +264,6 @@ Partial Class Form1
     Friend WithEvents outputEnable As CheckBox
     Friend WithEvents graphChange As Button
     Friend WithEvents recordLED As BERGtools.LED
+    Friend WithEvents valveOpen As Button
+    Friend WithEvents valveLabel As Label
 End Class
