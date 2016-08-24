@@ -38,6 +38,7 @@ Public Class Form1
         upDownPSI.Enabled = False
         outputEnable.Enabled = False
         graphChange.Enabled = False
+        valveOpen.Enabled = False
 
         prev.Series.Item(0).LegendText = "PSI"
         prev.Series.Item(1).LegendText = "Chamber Pressure"
@@ -86,6 +87,8 @@ Public Class Form1
 
                 DaqBoard.FlashLED()
                 DaqBoard.AInputMode(AInRange)
+                DaqBoard.DConfigPort(MccDaq.DigitalPortType.FirstPortB, MccDaq.DigitalPortDirection.DigitalOut)
+                DaqBoard.DBitOut(MccDaq.DigitalPortType.FirstPortB, 0, MccDaq.DigitalLogicState.Low)
                 MsgBox("USB 1208FS Plus Initialized")
                 MyBase.Text = "USB 1208FS Plus"
                 Sample.Enabled = True
@@ -99,6 +102,7 @@ Public Class Form1
                 graphChange.Enabled = True
                 boardExists = True
                 flagUpdateAxis = True
+                valveOpen.Enabled = True
 
             End If
         Else
@@ -285,4 +289,26 @@ Public Class Form1
         prev.ChartAreas.Item(0).AxisX.Minimum = 0
         prev.ChartAreas.Item(0).AxisX.Maximum = secCount \ 8 + (60 - (secCount Mod 480) \ 8)
     End Sub
+
+    Private Sub valveOpen_Click(sender As Object, e As EventArgs) Handles valveOpen.Click
+        If valveOpen.Text = "Open Valve" Then
+            valveOpen.Text = "Close Valve"
+            valveLabel.Text = "Valve Closed"
+            DaqBoard.DOut(MccDaq.DigitalPortType.FirstPortB, MccDaq.DigitalLogicState.High)
+        Else
+            valveOpen.Text = "Open Valve"
+            valveLabel.Text = "Valve Open"
+            DaqBoard.DOut(MccDaq.DigitalPortType.FirstPortB, MccDaq.DigitalLogicState.Low)
+        End If
+    End Sub
+
+    Private Sub Form1_Closing(sender As Object, e As EventArgs) Handles Me.FormClosing
+
+        If boardExists Then
+            DaqBoard.DOut(MccDaq.DigitalPortType.FirstPortB, MccDaq.DigitalLogicState.Low)
+            DaqBoard.VOut(0, MccDaq.Range.Uni5Volts, 0, MccDaq.VOutOptions.Default)
+        End If
+
+    End Sub
+
 End Class
