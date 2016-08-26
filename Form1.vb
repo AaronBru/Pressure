@@ -293,11 +293,11 @@ Public Class Form1
     Private Sub valveOpen_Click(sender As Object, e As EventArgs) Handles valveOpen.Click
         If valveOpen.Text = "Open Valve" Then
             valveOpen.Text = "Close Valve"
-            valveLabel.Text = "Valve Closed"
+            valveLabel.Text = "Valve Open"
             DaqBoard.DOut(MccDaq.DigitalPortType.FirstPortB, MccDaq.DigitalLogicState.High)
         Else
             valveOpen.Text = "Open Valve"
-            valveLabel.Text = "Valve Open"
+            valveLabel.Text = "Valve Closed"
             DaqBoard.DOut(MccDaq.DigitalPortType.FirstPortB, MccDaq.DigitalLogicState.Low)
         End If
     End Sub
@@ -311,4 +311,11 @@ Public Class Form1
 
     End Sub
 
+    Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
+
+    End Sub
+
+    Private Sub valveLabel_Click(sender As Object, e As EventArgs) Handles valveLabel.Click
+
+    End Sub
 End Class
