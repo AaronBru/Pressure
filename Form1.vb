@@ -40,9 +40,12 @@ Public Class Form1
         graphChange.Enabled = False
         valveOpen.Enabled = False
 
-        prev.Series.Item(0).LegendText = "PSI"
+        prev.Series.Item(0).LegendText = "Pressure Preview"
         prev.Series.Item(1).LegendText = "Chamber Pressure"
         prev.Series.Item(2).LegendText = "Valve Pressure"
+
+        prev.ChartAreas.Item(0).AxisX.Title = "Time (sec)"
+        prev.ChartAreas.Item(0).AxisY.Title = "Pressure (PSI)"
 
     End Sub
 
@@ -103,6 +106,7 @@ Public Class Form1
                 boardExists = True
                 flagUpdateAxis = True
                 valveOpen.Enabled = True
+                instTimer.Enabled = True
 
             End If
         Else
@@ -142,12 +146,15 @@ Public Class Form1
     Private Sub analogTmr_Tick(sender As Object, e As EventArgs) Handles analogTmr.Tick
 
         Dim vInChamber, vInValve As Double
-        Dim timeDisplay As String = secCount \ 480 & secCount \ 8
+        Dim min As Integer = secCount \ 480
+        Dim sec As Integer = (secCount Mod 480) \ 8
 
         DaqBoard.VIn32(0, AInRange, vInChamber, MccDaq.VInOptions.Default)
         DaqBoard.VIn32(1, AInRange, vInValve, MccDaq.VInOptions.Default)
         prev.Series.Item(1).Points.AddXY(secCount / 8.0, vInChamber * 600)
         prev.Series.Item(2).Points.AddXY(secCount / 8.0, vInValve * 600)
+
+        updateTime(min, sec)
 
         If pressurePlot = 0 And aOutEnable Then
             DaqBoard.VOut(0, MccDaq.Range.Uni5Volts, analogOutRate(), MccDaq.VOutOptions.Default)
@@ -168,6 +175,16 @@ Public Class Form1
         End If
 
         secCount += 1
+
+    End Sub
+
+    Private Sub updateTime(ByVal min As Integer, ByVal sec As Integer)
+
+        If sec < 10 Then
+            timeLabel.Text = min & ":" & "0" & sec
+        Else
+            timeLabel.Text = min & ":" & sec
+        End If
 
     End Sub
 
@@ -311,11 +328,15 @@ Public Class Form1
 
     End Sub
 
-    Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
+    Private Sub instTimer_Tick(sender As Object, e As EventArgs) Handles instTimer.Tick
+        Dim vInChamber, vInValve As Double
+
+        DaqBoard.VIn32(0, AInRange, vInChamber, MccDaq.VInOptions.Default)
+        DaqBoard.VIn32(1, AInRange, vInValve, MccDaq.VInOptions.Default)
+
+        instValve.Text = CInt(vInValve * 600)
+        instChamber.Text = CInt(vInChamber * 600)
 
     End Sub
 
-    Private Sub valveLabel_Click(sender As Object, e As EventArgs) Handles valveLabel.Click
-
-    End Sub
 End Class
