@@ -4,7 +4,7 @@ Public Class configure
 
     Private Sub TextBox1_Leave(sender As Object, e As EventArgs) Handles TextBox1.Leave
 
-        If Regex.IsMatch(TextBox1.Text, "[^0-9]") Then
+        If Regex.IsMatch(TextBox1.Text, "[^0-9]") Or TextBox1.Text = "" Then
             MsgBox("Please enter a number.", MsgBoxStyle.Critical, "Error")
         End If
 
@@ -12,7 +12,7 @@ Public Class configure
 
     Private Sub time_Leave(sender As Object, e As EventArgs) Handles time.Leave
 
-        If Regex.IsMatch(time.Text, "[^0-9]") Then
+        If Regex.IsMatch(time.Text, "[^0-9]") Or time.Text = "" Then
             MsgBox("Please enter a number.", MsgBoxStyle.Critical, "Error")
         End If
 
@@ -20,7 +20,7 @@ Public Class configure
 
     Private Sub final_Leave(sender As Object, e As EventArgs) Handles final.Leave
 
-        If Regex.IsMatch(final.Text, "[^0-9]") Then
+        If Regex.IsMatch(final.Text, "[^0-9]") Or final.Text = "" Then
             MsgBox("Please enter a number.", MsgBoxStyle.Critical, "Error")
         End If
 
